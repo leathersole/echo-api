@@ -45,7 +45,7 @@ oc new-project echo-api
 - Create the template:
 
 ```
-oc new-app -f echo-api-template.yml
+oc new-app -f echo-api-template.yml --param WILDCARD_DOMAIN=<a-domain-that-resolves-to-your-ocp-cluster.com>
 ```
 
 - Check status:

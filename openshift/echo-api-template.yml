@@ -74,15 +74,12 @@ objects:
     labels:
       app: echo-api
   spec:
-    host: ${ECHOAPI_HOST} 
+    host: echo-api.${WILDCARD_DOMAIN} 
     to:
       kind: Service
       name: echo-api
     port:
       targetPort: echo-api-port
-    tls:
-      termination: edge
-      insecureEdgeTerminationPolicy: Allow
 
 parameters:
 - name: ECHOAPI_IMAGE
@@ -91,7 +88,6 @@ parameters:
   required: true
 
 
-- name: ECHOAPI_HOST
-  description: "Host for the Route Object"
-  value: "yourhost.com"
+- name: WILDCARD_DOMAIN
+  description: Root domain for the wildcard routes.
   required: true
